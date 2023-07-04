@@ -20,7 +20,8 @@ import { RouterModule } from '@angular/router';
     CommonModule,
     FormsModule,
     RouterModule,
-    AppModule
+    AppModule,
+    
   ],
   exports: [
     PostListComponent

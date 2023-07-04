@@ -18,6 +18,13 @@ export class PostService {
      this.posts= defaultposts;
   }
 
+  deletePost(id: number): void {
+    this.posts = this.posts.filter((post) => post.postId !==id);
+  }
+
+  findPostById(id: number): Post | undefined {
+    return this.posts.find((post)=> post.postId === Number(id) )
+  }
 
 
 }
