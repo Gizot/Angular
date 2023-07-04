@@ -6,14 +6,18 @@
         <th>View Count</th>
         <th>Creation Date</th>
         <th>Post Publish Statement</th>
-        <th></th>
-        <th></th>
+       
     </tr>
 </thead>
 
 <tbody>
-    <tr>
-        
+    <tr *ngFor="let item of posts">
+        <td>{{item.postId}}</td>
+        <td>{{item.title}}</td>
+        <td>{{item.viewCount}}</td>
+        <td>{{item.creationDate}}</td>
+        <td>{{item.isPublished}}</td>
+
     </tr>
 </tbody>
 </table>

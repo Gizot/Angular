@@ -10,6 +10,7 @@ import { Post } from '../post';
 export class PostListComponent {
   posts: Post[] = []
   constructor(private postService: PostService) {
+    this.postService.setPosts();
     this.posts = this.postService.getPosts();
   }
 

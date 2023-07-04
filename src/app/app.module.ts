@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { UserModule } from './user/user.module';
 import { ButtonComponent } from './button/button.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { PostsModule } from './posts/posts.module';
 
 @NgModule({
   declarations: [
