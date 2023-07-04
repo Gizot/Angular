@@ -33,14 +33,16 @@ export class UserAddComponent {
     alert("This user already exist.")
     else {
       this.userService.addUser(this.user);
-      console.log(this.userService.getUsers());
+      this.router.navigateByUrl('/userlist');
+      
     }
 
-    this.userService.addUser(this.user);
-    console.log(this.userService.getUsers());
+    
   }
 
   handleCancelClick(){
+  
     this.router.navigateByUrl("/userlist");
+
   }
 }

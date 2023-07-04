@@ -4,6 +4,7 @@ import { UserListComponent } from './user-list/user-list.component';
 import { UserAddComponent } from './user-add/user-add.component';
 import { FormsModule } from '@angular/forms';
 import { AppModule } from '../app.module';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -18,7 +19,8 @@ import { AppModule } from '../app.module';
   imports: [
     CommonModule,
     FormsModule,
-    AppModule
+    AppModule,
+    RouterModule
     
   ],
   exports: [
