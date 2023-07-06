@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class PostListComponent {
   posts: Post[] = []
   constructor(private postService: PostService, private router: Router) {
+    
     this.postService.setPosts();
     this.posts = this.postService.getPosts();
   }
@@ -18,6 +19,8 @@ export class PostListComponent {
   handleDeleteClick($event: number): void {
     this.postService.deletePost($event);
     this.posts = this.postService.getPosts();
+    console.log($event);
+
   }
 
   handleDetailClick($event: number): void {

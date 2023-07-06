@@ -18,11 +18,11 @@
         <td>{{item.creationDate}}</td>
         <td>{{item.isPublished}}</td>
 
-        <app-button [buttonText]="'Edit'" [id]="item.postId" (onButtonClick)="handleDetailClick($event)"> </app-button>
+        <app-button [buttonText]="'Detail'" [id]="item.postId" (onButtonClick)="handleDetailClick($event)"> </app-button>
         <app-button [buttonText]="'Delete'" [id]="item.postId" (onButtonClick)="handleDeleteClick($event)"> </app-button>
 
     </tr>
 </tbody>
 </table>
 
-<app-button [buttonText] = "'Add Post'" >Add Post</app-button>
+<button [routerLink] = "'/postadd'" >Add Post</button>

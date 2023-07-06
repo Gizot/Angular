@@ -3,6 +3,7 @@ import { Post } from '../post';
 import { PostService } from '../post.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from 'src/app/user/user.service';
+import { User } from 'src/app/user/user';
 
 @Component({
   selector: 'app-post-detail',
@@ -21,16 +22,24 @@ export class PostDetailComponent {
     creationDate: "",
     isPublished: false
   };
+  users: User[] = [];
   constructor(private postService: PostService, private router: Router, 
     private activatedRoute: ActivatedRoute, private userService: UserService) {
+      this.userService.setUsers();
+      this.users = this.userService.getUsers();
     
   }
   ngOnInit() {
-    this.postService.setPosts();
+
     this.activatedRoute.params.subscribe(params => {
       const id = params['id'];
-      this.post = this.postService.findPostById(id)!;
+      this.postService.setPosts();
+      this.posts = this.postService.getPosts();
+      console.log(this.posts);
+      this.post = this.posts.find(post => post.postId === Number(id))!;
   
     })
+
+  
   }
-}
+  }

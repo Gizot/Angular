@@ -19,10 +19,12 @@
             </div>
             <div>
                 <h2>Author</h2>
-            <p></p>
+            <p>{{users[post.userId -1 ].username}} </p>
             </div>
         </div>
 
     </div>
 
-</div>>
+</div>
+
+<button [routerLink]="'/postlist'">Return Postlist</button>
