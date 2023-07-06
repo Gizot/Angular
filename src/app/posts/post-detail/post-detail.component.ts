@@ -23,6 +23,8 @@ export class PostDetailComponent {
     isPublished: false
   };
   users: User[] = [];
+  editMode: Boolean = false;
+
   constructor(private postService: PostService, private router: Router, 
     private activatedRoute: ActivatedRoute, private userService: UserService) {
       this.userService.setUsers();
@@ -38,6 +40,18 @@ export class PostDetailComponent {
   
     })
 
-  
   }
+
+    handleSaveClick() {
+      
+      this.postService.updatePost(this.post);
+    }
+    handleDeleteClick( ) {}
+
+    handleEditClick() {
+      this.editMode = !this.editMode;
+    }
+
+
+  
   }

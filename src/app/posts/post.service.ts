@@ -17,10 +17,7 @@ export class PostService {
   setPosts(): void {
      this.posts= defaultposts;
   }
-  setUpdatedPosts(posts: Post[]): void {
-    this.posts = posts;
-
-  }
+  
 
   deletePost(id: number): void {
     this.posts = this.posts.filter((post) => post.postId !==id);
@@ -32,6 +29,14 @@ export class PostService {
 
   addPost(post: Post) {
     this.posts.push(post);
+  }
+
+  updatePost(updatedPost: Post) {
+    this.posts = this.posts.map(post => {
+      if (post.postId === updatedPost.postId)
+      post = updatedPost;
+      return post;
+    });
   }
 
 }
