@@ -11,15 +11,14 @@ import { Router } from '@angular/router';
 export class PostListComponent {
   posts: Post[] = []
   constructor(private postService: PostService, private router: Router) {
-    
+    if (this.postService.getPosts().length === 0)
     this.postService.setPosts();
-    this.posts = this.postService.getPosts();
+  this.posts = this.postService.getPosts()
   }
 
   handleDeleteClick($event: number): void {
     this.postService.deletePost($event);
     this.posts = this.postService.getPosts();
-    console.log($event);
 
   }
 

@@ -33,9 +33,7 @@ export class PostDetailComponent {
 
     this.activatedRoute.params.subscribe(params => {
       const id = params['id'];
-      this.postService.setPosts();
       this.posts = this.postService.getPosts();
-      console.log(this.posts);
       this.post = this.posts.find(post => post.postId === Number(id))!;
   
     })
