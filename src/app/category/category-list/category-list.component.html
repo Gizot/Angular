@@ -1,0 +1,23 @@
+<table class="PostTable">
+    <thead>
+    <tr>
+        <th>Category Id</th>
+        <th>Category Name</th>
+        <th>Creation Date</th>
+       
+    </tr>
+</thead>
+
+<tbody>
+    <tr *ngFor="let item of categories">
+        <td>{{item.categoryId}}</td>
+        <td>{{item.name}}</td>
+        <td>{{item.creationDate}}</td>
+   
+
+        <app-button [buttonText]="'Detail'" [id]="item.categoryId" (onButtonClick)="handleDetailClick($event)"> </app-button>
+        <app-button [buttonText]="'Delete'" [id]="item.categoryId" (onButtonClick)="handleDeleteClick($event)"> </app-button>
+
+    </tr>
+</tbody>
+</table>
