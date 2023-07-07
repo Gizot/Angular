@@ -9,8 +9,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./post-list.component.css']
 })
 export class PostListComponent {
-  posts: Post[] = []
-  
+  posts: Post[] = [];
+  pagedData: Post[] = [];
+  currentPage = 1;
+  itemsPerPage = 10;
+
+
   constructor(private postService: PostService, private router: Router) {
     if (this.postService.getPosts().length === 0)
     this.postService.setPosts();
@@ -20,10 +24,50 @@ export class PostListComponent {
   handleDeleteClick($event: number): void {
     this.postService.deletePost($event);
     this.posts = this.postService.getPosts();
+    this.pageChanged(this.currentPage);
 
   }
 
   handleDetailClick($event: number): void {
     this.router.navigate(["/postlist/", $event]);
+  }
+
+  ngOnInit(){
+    this.pageChanged(this.currentPage);
+    
+  }
+
+  pageChanged(page: number): void {
+    const startIndex = (page - 1) * this.itemsPerPage;
+    const endIndex = startIndex + this.itemsPerPage;
+    this.pagedData = this.posts.slice(startIndex, endIndex);
+    this.currentPage = page;
+    if(this.pageChanged.length === 0 && this.currentPage) 
+      this.previousPage();
+    
+    
+
+
+  }
+
+  previousPage(): void {
+    if(this.currentPage > 1)
+    {
+      this.currentPage--;
+      this.pageChanged(this.currentPage);
+    }
+    
+  }
+  nextPage(): void {
+    if (this.currentPage < this.totalPages) 
+    {
+      this.currentPage++;
+      this.pageChanged(this.currentPage);
+    }
+  }
+
+  get totalPages(): number{
+    return Math.ceil(this.posts.length/this.itemsPerPage) // ceil =>7.01 i üstüne yuvarlar 8 yapar
+  
   }
 }

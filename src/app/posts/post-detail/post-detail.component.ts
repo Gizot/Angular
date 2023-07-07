@@ -45,8 +45,12 @@ export class PostDetailComponent {
     handleSaveClick() {
       
       this.postService.updatePost(this.post);
+      this.router.navigateByUrl('/postlist');
     }
-    handleDeleteClick( ) {}
+    handleDeleteClick( ) {
+      this.postService.deletePost(this.post.postId);
+      this.router.navigateByUrl('/postlist');
+    }
 
     handleEditClick() {
       this.editMode = !this.editMode;

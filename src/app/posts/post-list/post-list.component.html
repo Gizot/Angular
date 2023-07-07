@@ -11,7 +11,7 @@
 </thead>
 
 <tbody>
-    <tr *ngFor="let item of posts">
+    <tr *ngFor="let item of pagedData">
         <td>{{item.postId}}</td>
         <td>{{item.title}}</td>
         <td>{{item.viewCount}}</td>
@@ -24,5 +24,10 @@
     </tr>
 </tbody>
 </table>
+<div class="pagination" *ngIf=" totalPages > 0">
+<button [disabled]="currentPage === 1" (click)="previousPage()">Previous</button>
+<span>{{ currentPage }}</span>
+<button [disabled] = "currentPage === totalPages" (click)="nextPage()">Next</button>
+</div>
 
 <button [routerLink] = "'/postadd'" >Add Post</button>

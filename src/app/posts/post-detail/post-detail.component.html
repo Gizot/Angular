@@ -35,7 +35,8 @@
     </div>
 
 </div>
-<button (click)="handleEditClick()"> Edit </button>
+<button (click)="handleEditClick()" type="button"> Edit</button>
+<button (click)="handleDeleteClick()" type="button">Delete</button>
 
 <form *ngIf="editMode">
     <label for="title">Title</label>
@@ -55,7 +56,6 @@
     </select>
     <div>
         <button (click)="handleSaveClick()" type="button">Save</button>
-        <button (click)="handleDeleteClick()" type="button">Cancel</button>
     </div>
 </form>
 
